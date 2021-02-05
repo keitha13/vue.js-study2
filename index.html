@@ -7,22 +7,29 @@
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 </head>
 <body>
-  <div id="app">
-    <button class="button" @click="add">クリック</button>
-    <div>{{ message }}</div>
+  <div id="app1">
+    <div>{{ message1 }}</div>
+  </div>
+
+  <div id="app2">
+    <div>{{ message2 }}</div>
+  </div>
+
+  <div id="app3">
+    <div>{{ message1 }}</div>
   </div>
 
   <script>
     new Vue({
-      el: "#app",
+      el: "#app1",
       data: {
-        message : "",
-        count: 0
-      },
-      methods: {
-        add() {
-          this.message = 'ボタンを${++count}回クリックしました。';
-        }
+        message1: "This is Vue app 1"
+      }
+    });
+    new Vue({
+      el: "#app2",
+      data: {
+        message2: "This is Vue app 2"
       }
     });
   </script>
