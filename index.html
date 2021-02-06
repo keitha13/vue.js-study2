@@ -8,23 +8,18 @@
 </head>
 <body>
   <div id="app">
-    {{ str }}<br>
-    {{ list[0] }}<br>
-    {{ obj.atr2 }}
+    本日は{{ date.getFullYear() }}年{{ date.getMonth() + 1 }}月{{ date.getDate() }}日です。<br>
+    料金は{{ Number(price).toLocaleString() }}円になります。
   </div>
 
   <script>
     new Vue({
       el: "#app",
       data: {
-        str: "Hello, World",
-        list: [1, 2, 3],
-        obj: {
-          atr1: "value1",
-          atr2: "value2"
-        }
+        date: new Date(),
+        price: 10000
       }
-    });
+    })
   </script>
 </body>
 </html>
