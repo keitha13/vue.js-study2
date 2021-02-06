@@ -7,29 +7,22 @@
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 </head>
 <body>
-  <div id="app1">
-    <div>{{ message1 }}</div>
-  </div>
-
-  <div id="app2">
-    <div>{{ message2 }}</div>
-  </div>
-
-  <div id="app3">
-    <div>{{ message1 }}</div>
+  <div id="app">
+    {{ str }}<br>
+    {{ list[0] }}<br>
+    {{ obj.atr2 }}
   </div>
 
   <script>
     new Vue({
-      el: "#app1",
+      el: "#app",
       data: {
-        message1: "This is Vue app 1"
-      }
-    });
-    new Vue({
-      el: "#app2",
-      data: {
-        message2: "This is Vue app 2"
+        str: "Hello, World",
+        list: [1, 2, 3],
+        obj: {
+          atr1: "value1",
+          atr2: "value2"
+        }
       }
     });
   </script>
