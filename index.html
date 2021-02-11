@@ -3,31 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hello, World!</title>
-  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <title>おみくじ</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
 </head>
 <body>
-  <div id="app">
-    本日は{{ parseDate(date) }}です。<br>
-    料金は{{ parsePrice() }}になります。
+  <div class="container" id="app">
+    <h1>おみくじ</h1>
+    <div v-if="result">結果は…「{{ result }}」です！</div>
+    <button class="button" v-on:click="draw">{{ button }}</button>
   </div>
 
   <script>
-    new Vue({
+    // 結果のデータ
+    var omikuji = ['大吉', '吉', '凶'];
+    var vm = new Vue({
       el: '#app',
       data: {
-        date: new Date(),
-        price: 10000
+        result: null,
+        button: 'おみくじを引く'
       },
       methods: {
-        parseDate(date) {
-          return date.getFullYear() + '年' + ( date.getMonth() + 1 ) + '月' + date.getDate() + '日'
-        },
-        parsePrice() {
-          return Number(this.price).toLocaleString() + '円'
+        draw: function () {
+          var index = Math.floor(Math.random() * omikuji.length);
+          this.result = omikuji[index];
+          this.button = 'おみくじをもう一度引く';
         }
       }
-    })
+    });
   </script>
 </body>
 </html>
